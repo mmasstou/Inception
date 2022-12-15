@@ -10,7 +10,7 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 
 
     # https://stackoverflow.com/questions/10299148/mysql-error-1045-28000-access-denied-for-user-billlocalhost-using-passw
-    cat <<EOF > "mktemp"
+    cat <<EOF > "/tmp/mktemp"
 USE mysql;
 FLUSH PRIVILEGES;
 
@@ -23,8 +23,8 @@ GRANT ALL PRIVILEGES ON $DATABASE_NAME.* TO '$DATABASE_USR'@'%';
 FLUSH PRIVILEGES;
 EOF
     # run init.sql
-    /usr/bin/mysqld --user=mysql --bootstrap < "mktemp"
-    # rm -f  "mktemp"
+    /usr/bin/mysqld --user=mysql --bootstrap < "/tmp/mktemp"
+    rm -f  "/tmp/mktemp"
 fi
 
-tail -f /dev/null
+# tail -f /dev/null

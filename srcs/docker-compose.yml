@@ -1,12 +1,30 @@
 version: '3.8'
 
 services:
+  nginx:
+    build:
+      context: ./requirements/nginx
+      dockerfile: Dockerfile
+    container_name: NGINX_container
+    ports:
+      - "80:80"
+      - "9000:9000"
+    networks:
+      - InceptionNet
   mariadb:
-    build: ./requirements/mariadb
-    container_name: mariadb_container
+    build: 
+      context: ./requirements/mariadb
+      dockerfile: Dockerfile
+    container_name: DB_container
+    ports:
+      - "3306:3306"
     env_file:
       - .env
     networks:
       - InceptionNet
+  wordpress:
+    build: 
+      context:  ./requirements/wordpress
+      dockerfile: Dockerfile
 networks:
   InceptionNet:
