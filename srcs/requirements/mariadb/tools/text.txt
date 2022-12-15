@@ -1,0 +1,7 @@
+# echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PWD'" | mysql -u root --password=""
+	# echo "CREATE USER '$DATABASE_USR'@'%' IDENTIFIED by '$DATABASE_PWD'" | mysql -u root --password='$MYSQL_ROOT_PWD'
+
+	# echo "CREATE DATABASE $DATABASE_NAME" | mysql -u root --password=""
+	# echo "GRANT ALL PRIVILEGES ON $DATABASE_NAME.* TO '$DATABASE_USR'@'%' "| mysql -u root --password='$MYSQL_ROOT_PWD'
+
+	# echo "FLUSH PRIVILEGES" 
