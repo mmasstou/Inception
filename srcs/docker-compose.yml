@@ -7,10 +7,13 @@ services:
       dockerfile: Dockerfile
     container_name: NGINX_container
     ports:
-      - "80:80"
-      - "9000:9000"
+      - "443:443"
+    volumes:
+      - ~/Desktop/INcep001/website:/var/www/html/wordpress/
     networks:
       - InceptionNet
+    depends_on:
+      - wordpress
   mariadb:
     build: 
       context: ./requirements/mariadb
@@ -26,5 +29,15 @@ services:
     build: 
       context:  ./requirements/wordpress
       dockerfile: Dockerfile
+    container_name: wordpress
+    env_file:
+      - .env
+    ports:
+      - "9000:9000"
+    depends_on:
+      - mariadb
+    volumes:
+      - ~/Desktop/INcep001/website:/var/www/html/wordpress/
 networks:
   InceptionNet:
+
