@@ -1,30 +1,24 @@
 #!/bin/sh
+
 if [ ! -d "/run/mysqld" ]; then
     mkdir -p /run/mysqld
+    chown mysql /run/mysqld
+else
+    chown mysql /run/mysqld
+fi
+etc/init.d/mysql start
+if [ ! -d "/var/lib/mysql/$DATABASE_NAME" ]; then
+
+# echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PWD';" | mysql -uroot 
+
+echo "CREATE DATABASE $DATABASE_NAME ; " | mysql -u root 
+echo "CREATE USER '$DATABASE_USR'@'%' IDENTIFIED by '$DATABASE_PWD';" | mysql -u root 
+echo "GRANT ALL PRIVILEGES ON $DATABASE_NAME.* TO '$DATABASE_USR'@'%';" | mysql -u root 
+
+echo "FLUSH PRIVILEGES;" | mysql -uroot 
+etc/init.d/mysql stop
+
+
 fi
 
-if [ ! -d "/var/lib/mysql/mysql" ]; then
-
-    # init database
-    mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm >/dev/null
-
-
-    # https://stackoverflow.com/questions/10299148/mysql-error-1045-28000-access-denied-for-user-billlocalhost-using-passw
-    cat <<EOF > "/tmp/mktemp"
-USE mysql;
-FLUSH PRIVILEGES;
-
-ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PWD';
-
-CREATE DATABASE $DATABASE_NAME CHARACTER SET utf8 COLLATE utf8_general_ci;
-CREATE USER '$DATABASE_USR'@'%' IDENTIFIED by '$DATABASE_PWD';
-GRANT ALL PRIVILEGES ON $DATABASE_NAME.* TO '$DATABASE_USR'@'%';
-
-FLUSH PRIVILEGES;
-EOF
-    # run init.sql
-    /usr/bin/mysqld --user=mysql --bootstrap < "/tmp/mktemp"
-    rm -f  "/tmp/mktemp"
-fi
-
-# tail -f /dev/null
+exec "$@"
