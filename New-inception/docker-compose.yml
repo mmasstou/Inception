@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  mariadb:
+    build: ./mariadb
+    container_name: mariadb
+    ports:
+      - 3306:3306
+    networks:
+      - INceptionNet
+    env_file:
+      - .env
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+      - 80:80
+    env_file:
+      - .env
+    volumes:
+      - /Users/mohamed/Desktop/inceptiondd/New-inception/html:/usr/share/nginx/html:rw
+      - /Users/mohamed/Desktop/incept/:/var/www/html/wordpress
+    networks:
+      - INceptionNet
+  wordpress:
+    build: ./wordpress
+    container_name: wordpress
+    env_file:
+      - .env
+    volumes:
+      - /Users/mohamed/Desktop/incept/:/var/www/html/wordpress
+    networks:
+      - INceptionNet
+networks:
+  INceptionNet:
+
