@@ -18,3 +18,20 @@ I hope this helps! Let me know if you have any questions.
 
 
 /etc/mysql/mariadb.conf.d/50
+
+
+### NGINX : 
+This is a block of Nginx configuration that defines how the web server should handle requests for PHP files. It includes several directives that control how the server responds to these requests.
+
+The "listen" directive specifies the port on which the server should listen for incoming requests. In this case, the server is listening on port 80, which is the default port for HTTP traffic.
+
+The "root" directive specifies the root directory for the server. This is the directory that will be used to resolve relative paths in the server configuration.
+
+The "index" directive specifies the default index file for the server. When a client requests a directory on the server, Nginx will look for one of the specified index files in that directory.
+
+The "location" block specifies how the server should handle requests for PHP files. It uses the "try_files" directive to try to find a matching file in the specified directory. If no matching file is found, the server will return a 404 error. The "fastcgi_pass" directive specifies the FastCGI server that should be used to process the request. The "include" directive includes a file with additional FastCGI parameters that should be used when processing the request.
+
+Finally, the "fastcgi_param" directive sets a number of FastCGI parameters that will be passed to the FastCGI server when processing the request. These parameters include the name of the script being executed and the path information for the request.
+
+
+

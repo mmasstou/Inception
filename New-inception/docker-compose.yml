@@ -10,27 +10,42 @@ services:
       - INceptionNet
     env_file:
       - .env
+    volumes:
+      - INception_db:/var/lib/mysql
   nginx:
     build: ./nginx
     container_name: nginx
     ports:
-      - 80:80
+      - 443:443
     env_file:
       - .env
+    depends_on:
+      - wordpress
     volumes:
-      - /Users/mohamed/Desktop/inceptiondd/New-inception/html:/usr/share/nginx/html:rw
-      - /Users/mohamed/Desktop/incept/:/var/www/html/wordpress
+      # - /Users/mohamed/Desktop/inceptiondd/New-inception/html:/usr/share/nginx/html:rw
+      # - /Users/mohamed/Desktop/incept/:/var/www/html/wordpress
+      - INception_web:/var/www/html/wordpress
     networks:
       - INceptionNet
+    restart: always
   wordpress:
     build: ./wordpress
     container_name: wordpress
     env_file:
       - .env
+    ports:
+      - "9000:9000"
+    depends_on:
+      - mariadb
     volumes:
-      - /Users/mohamed/Desktop/incept/:/var/www/html/wordpress
+      # - /Users/mohamed/Desktop/incept/:/var/www/html/wordpress
+      - INception_web:/var/www/html/wordpress
     networks:
       - INceptionNet
+    restart: always
 networks:
   INceptionNet:
+volumes:
+  INception_web:
+  INception_db:
 
