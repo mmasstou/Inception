@@ -1,43 +1,51 @@
-version: '3.8'
-
+version: '3'
 services:
+
   nginx:
-    build:
-      context: ./requirements/nginx
-      dockerfile: Dockerfile
-    container_name: NGINX_container
+    build: requirements/nginx/
+    container_name: nginx
     ports:
+      - "80:80"
       - "443:443"
     volumes:
-      - ~/Desktop/INcep001/website:/var/www/html/wordpress/
-    networks:
-      - InceptionNet
+      - "~/Desktop/inception/website:/var/www/html"
     depends_on:
       - wordpress
-  mariadb:
-    build: 
-      context: ./requirements/mariadb
-      dockerfile: Dockerfile
-    container_name: DB_container
-    ports:
-      - "3306:3306"
-    env_file:
-      - .env
     networks:
-      - InceptionNet
+      - frontend
+    restart: always
+
   wordpress:
-    build: 
-      context:  ./requirements/wordpress
-      dockerfile: Dockerfile
+    build: requirements/wordpress/
     container_name: wordpress
-    env_file:
-      - .env
     ports:
       - "9000:9000"
+    volumes:
+      - "~/Desktop/inception/website:/var/www/html"
     depends_on:
       - mariadb
-    volumes:
-      - ~/Desktop/INcep001/website:/var/www/html/wordpress/
-networks:
-  InceptionNet:
+    networks:
+      - frontend
+      - backend
+    restart: always
+    env_file:
+      - .env
 
+
+  mariadb:
+    build: requirements/mariadb/
+    container_name: mariadb
+    ports:
+      - "3306:3306"
+    volumes:
+      - "~/Desktop/inception/mariadb:/var/lib/mysql"
+    networks:
+      - backend
+    restart: always
+    env_file:
+      - .env
+    
+
+networks:
+  frontend:
+  backend:
