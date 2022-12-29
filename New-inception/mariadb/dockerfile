@@ -11,4 +11,5 @@ COPY ./tools/create-db.sql /tmp
 RUN service mysql start && mysql < /tmp/create-db.sql && rm -f /tmp/create-db.sql;
 
 COPY ./tools/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+
 CMD ["mysqld"]
