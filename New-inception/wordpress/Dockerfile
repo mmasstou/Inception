@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y mariadb-server \
     unzip \
     curl
 
+
 RUN mkdir /run/php
 COPY ./conf/wp_config.sh  /tmp/wp_config.sh
 COPY ./tools/www.conf /etc/php/7.3/fpm/pool.d/www.conf
@@ -19,7 +20,7 @@ RUN mkdir -p /var/www/html && chmod +x /var/www/html
 
 RUN unzip latest.zip -d /var/www/html
 
-# COPY ./tools/wp-config.php /var/www/html/wordpress/wp-config.php
+
 
 ENTRYPOINT [ "/tmp/wp_config.sh" ]
 

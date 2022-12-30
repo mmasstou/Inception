@@ -12,26 +12,23 @@ services:
     depends_on:
       - wordpress
     networks:
-      - frontend
+      - InceptionNet
     restart: always
-
   wordpress:
     build: requirements/wordpress/
     container_name: wordpress
     ports:
       - "9000:9000"
     volumes:
-      - "~/Desktop/inception/website:/var/www/html"
+      - ~/Desktop/INcep001/website:/var/www/html/wordpress/
     depends_on:
       - mariadb
     networks:
-      - frontend
-      - backend
+      - InceptionNet
     restart: always
     env_file:
-      - .env
-
-
+      - .en
+      
   mariadb:
     build: requirements/mariadb/
     container_name: mariadb
@@ -44,8 +41,20 @@ services:
     restart: always
     env_file:
       - .env
-    
-
+    networks:
+      - InceptionNet
+  wordpress:
+    build: 
+      context:  ./requirements/wordpress
+      dockerfile: Dockerfile
+    container_name: wordpress
+    env_file:
+      - .env
+    ports:
+      - "9000:9000"
+    depends_on:
+      - mariadb
+    volumes:
+      - ~/Desktop/INcep001/website:/var/www/html/wordpress/
 networks:
-  frontend:
-  backend:
+  InceptionNet:

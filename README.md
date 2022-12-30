@@ -1,7 +1,6 @@
 # Inception
 This project aims to broaden your knowledge of system administration by using Docker. You will virtualize several Docker images, creating them in your new personal virtual machine.
 
-
  ### To install and configure WordPress on your server, follow these steps:
 
     1- Install and configure a web server such as Apache or Nginx and a database server such as MySQL or MariaDB.
@@ -22,3 +21,4 @@ After installation, you can log in to the WordPress admin dashboard by going to 
 
 #  PID 1 and the best practices for writing Dockerfiles : 
 PID 1 is the process with process ID 1 in a Unix-like operating system. It is the first process that is started when the system boots and is typically the parent process of all other processes on the system
+
