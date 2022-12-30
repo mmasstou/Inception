@@ -4,6 +4,7 @@ services:
   mariadb:
     build: ./mariadb
     container_name: mariadb
+    image: mariadb
     ports:
       - 3306:3306
     networks:
@@ -15,6 +16,7 @@ services:
   nginx:
     build: ./nginx
     container_name: nginx
+    image: nginx
     ports:
       - 443:443
     env_file:
@@ -25,12 +27,14 @@ services:
       # - /Users/mohamed/Desktop/inceptiondd/New-inception/html:/usr/share/nginx/html:rw
       # - /Users/mohamed/Desktop/incept/:/var/www/html/wordpress
       - INception_web:/var/www/html/wordpress
+      - /var/www/html/static:/Users/mohamed/Desktop/inceptiondd/New-inception/nginx/static
     networks:
       - INceptionNet
     restart: always
   wordpress:
     build: ./wordpress
     container_name: wordpress
+    image: wordpress
     env_file:
       - .env
     ports:
