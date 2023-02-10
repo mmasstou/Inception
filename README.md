@@ -27,7 +27,7 @@ have to use `docker compose`
 5. [X] [Docker Network](#docker-network)
 6. [X] [Docker Compose](#docker-compose)
 7. [X] [NGINX Container](#nginx-container)
-8. [X] [WordPress Container](#wordpress-container)
+8. [X] [WordPress Container](https://github.com/mmasstou/Inception/tree/master/srcs/requirements/wordpress)
 9. [X] [MariaDB Container](#mariadb-container)
 
 ## Docker
