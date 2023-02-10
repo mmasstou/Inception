@@ -15,3 +15,10 @@ if [ ! -f /var/www/html/wordpress/wp-config.php ]; then
 fi
 
 exec "$@"
+
+
+echo "The script is checking if the file "/var/www/html/wordpress/wp-config.php" exists. If it doesn't, it performs a series of WordPress CLI (wp) commands. The commands include downloading WordPress, creating a database configuration, setting Redis related constants, installing WordPress, creating a new user, installing a Redis cache plugin, enabling Redis cache and setting WP_CACHE to true.
+
+The commands require environment variables to be set for database name, user, password, Redis host, port, domain name, WordPress title, admin credentials, new user credentials and email.
+
+Finally, the script executes the command passed as arguments to the script."
