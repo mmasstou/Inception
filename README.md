@@ -85,6 +85,8 @@ CMD ["nginx", "-g", "daemon off;"]
 ## WordPress Container
 
 The WordPress container contains WordPress and php-fpm, installed and configured without NGINX.
+
+
 Folder File :
 
 * `conf/www.conf`
