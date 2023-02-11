@@ -45,7 +45,7 @@ if [ ! -f /var/www/html/wordpress/wp-config.php ]; then
     echo "WP -- '/var/www/html/wordpress/wp-config.php' file does not exist"
     echo "WP --  download wordpress files"
     wp core download --allow-root --path=/var/www/html/wordpress
-    # We create a new wp-config.php file (= wordpress configuration file) with MYSQL_USER
+    # We create a new wp-config.php file ( wordpress configuration file) with MYSQL_USER
     # echo "Wordpress: We install WordPress with WORDPRESS_ADMIN_USER"
     echo "WP --  Create '/var/www/html/wordpress/wp-config.php' file "
     wp config create --dbname=${DATABASE_NAME} --dbuser=${DATABASE_USER} --dbpass=${DATABASE_PWD} --dbhost=mariadb --path=/var/www/html/wordpress  --allow-root
