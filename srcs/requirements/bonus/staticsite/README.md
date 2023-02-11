@@ -1,5 +1,7 @@
 ## Static site Container
 
+simple static website in the language of your choice except PHP (Yes, PHP is excluded!). For example, a showcase site or a site for presenting your  resume
+
 Folder File :
 
 * `conf/nginx.conf`
@@ -7,7 +9,8 @@ Folder File :
 * `tools/mmasstou.png`
 * `tools/style.css`
 * `Dockerfile`
-> conf/nginx.conf : 
+
+> conf/nginx.conf :
 
 ```
 server {
@@ -20,7 +23,7 @@ server {
 
 ```
 
-> Dockerfile : 
+> Dockerfile :
 
 ```
 FROM debian:buster

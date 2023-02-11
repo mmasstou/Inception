@@ -2,12 +2,21 @@
 
 This project aims to virtualize several Docker images and create a network of containers for a WordPress website. The following containers are created:
 
+#### Mandatory Part
+
 * A Docker container with NGINX with TLSv1.2 or TLSv1.3 only
 * A Docker container with WordPress + php-fpm
 * A Docker container with MariaDB
 * A volume that contains the WordPress database
 * A second volume that contains the WordPress website files
 * A docker-network that establishes the connection between the containers
+
+#### Bonus part
+
+1. Set up redis cache for your WordPress website in order to properly manage the cache
+2. Create a simple static website in the language of your choice except PHP (Yes, PHP is excluded!). For example, a showcase site or a site for presenting your  resume
+3. Set up Adminer
+4. Set up a service of your choice that you think is useful. During the defense, you will have to justify your choice
 
 ## Getting Started
 

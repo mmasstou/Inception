@@ -1,10 +1,12 @@
 ## Redis Container
 
+redis cache for your WordPress website in order to properly manage the cache
+
 Folder File :
 
 * `Dockerfile`
 
-> Dockerfile : 
+> Dockerfile :
 
 ```
 FROM debian:buster
