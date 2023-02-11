@@ -29,6 +29,10 @@ have to use `docker compose`
 7. [X] [NGINX Container](https://github.com/mmasstou/Inception/tree/master/srcs/requirements/nginx)
 8. [X] [WordPress Container](https://github.com/mmasstou/Inception/tree/master/srcs/requirements/wordpress)
 9. [X] [MariaDB Container](https://github.com/mmasstou/Inception/tree/master/srcs/requirements/mariadb)
+1. [X] [Bonus-adminer Container](https://github.com/mmasstou/Inception)
+1. [X] [Bonus-portainer Container](https://github.com/mmasstou/Inception)
+1. [X] [Bonus-redis Container](https://github.com/mmasstou/Inception)
+1. [X] [Bonus-staticsite Container](https://github.com/mmasstou/Inception)
 
 ## Docker
 
