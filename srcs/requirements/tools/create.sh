@@ -1,7 +1,7 @@
 #!/bin/sh
 
-mkdir -p /home/${USER}/Data/wp
-mkdir -p /home/${USER}/Data/db
-mkdir -p /home/${USER}/Data/static
-mkdir -p /home/${USER}/Data/portainer
-mkdir -p /home/${USER}/Data/redis
+mkdir -p /Users/mmasstou/Desktop/inception/volumes/wp
+mkdir -p /Users/mmasstou/Desktop/inception/volumes/db
+mkdir -p /Users/mmasstou/Desktop/inception/volumes/static
+mkdir -p /Users/mmasstou/Desktop/inception/volumes/portainer
+mkdir -p /Users/mmasstou/Desktop/inception/volumes/redis
