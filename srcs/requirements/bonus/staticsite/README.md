@@ -36,4 +36,4 @@ CMD [ "nginx", "-g", "daemon off;" ]
 
 ```
 
-![Image description](https://github.com/mmasstou/Inception/blob/master/srcs/requirements/bonus/staticsite/tools/mmasstou.png)
+![Image description](https://github.com/mmasstou/Inception/staticsite.png)

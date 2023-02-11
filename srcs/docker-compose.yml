@@ -97,24 +97,24 @@ volumes:
     driver_opts:
       type: 'none'
       o: bind
-      device:  /home/mmasstou/Data/wp
+      device:  /Users/mmasstou/Desktop/inception/volumes/wp
   INception_static:
     driver_opts:
       type: 'none'
       o: bind
-      device:  /home/mmasstou/Data/static
+      device:  /Users/mmasstou/Desktop/inception/volumes/static
   INception_portainer:
     driver_opts:
       type: 'none'
       o: bind
-      device:  /home/mmasstou/Data/portainer
+      device:  /Users/mmasstou/Desktop/inception/volumes/portainer
   INception_db:
     driver_opts:
       type: 'none'
       o: bind
-      device:  /home/mmasstou/Data/db
+      device:  /Users/mmasstou/Desktop/inception/volumes/db
   INception_redis:
     driver_opts:
       type: 'none'
       o: bind
-      device:  /home/mmasstou/Data/redis
+      device:  /Users/mmasstou/Desktop/inception/volumes/redis
