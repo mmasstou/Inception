@@ -68,3 +68,5 @@ A Docker network is a virtual network that connects Docker containers, allowing 
 Docker Compose is a tool for defining and running multi-container Docker applications, by using a YAML file to specify the services, networks, and volumes for an application, and to configure how they are connected and interact with each other. With Docker Compose, you can define an entire application stack in a single file, and then start and stop the entire stack with a single command.
 
 ## Diagram of the Expected Result
+
+![Image description](https://github.com/mmasstou/Inception/blob/master/.img/inception.png)
